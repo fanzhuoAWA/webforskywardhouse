@@ -172,7 +172,9 @@
 								p-id="3175"></path>
 						</svg>
 						<div class="iconTip">Mail</div>
-					</a><a class="iconItem" onclick="alert('请前往bilibili查看详情')" href="javascript:void(0)">
+					</a><a class="iconItem"
+						onclick="pop('https://image.fanzhuo.xyz/file/AgACAgUAAyEGAASKws10AAMiaJyJ9Q7iSAP0G25vNP1q5y1vZ8AAAoPRMRvt3uFU-skvyKZHLYIBAAMCAANtAAM2BA.png')"
+						href="javascript:void(0)">
 						<svg t="1712319361023" class="icon" viewBox="0 0 1024 1024" version="1.1"
 							xmlns="http://www.w3.org/2000/svg" p-id="1861">
 							<path
@@ -360,6 +362,127 @@
 								}
 							}
 						</script>
+						<a class="projectItem b" href="javascript:void(0)" onclick="showRandomMessage()">
+							<div class="projectItemLeft">
+								<h1>回声洞</h1>
+								<div id="messageContainer">
+									<p id="messageText">点击这里可以看到飞屋成员们的留言~</p>
+								</div>
+							</div>
+						</a>
+
+						<script>
+							// 飞屋成员多行留言列表
+							const messages = [
+								`长满豹豹的小岛🐆🐆
+飞屋豹豹的爱巢🐆🐆
+吃完豹豹就睡觉🐆🐆
+快快乐乐没烦恼🐆🐆
+飞屋豹豹真是好🐆🐆
+幸福美满没烦恼🐆🐆`,
+
+								`长满流星的小岛🌠🌠
+飞屋流星的爱巢🌠🌠
+吃完流星就睡觉🌠🌠
+快快乐乐没烦恼🌠🌠
+飞屋流星真是好🌠🌠
+幸福美满没烦恼🌠🌠`,
+
+								`长满铅笔的小岛️️✏️✏️✏️
+铅笔小猫的爱巢️️✏️✏️✏️
+吃完铅笔就睡觉️️✏️✏️✏️
+快快乐乐没烦恼️️✏️✏️✏️
+铅笔小猫真是好️️✏️✏️✏️
+幸福美满没烦恼️️哦！那个被铅笔拥抱的小岛，真是一个梦幻的乐园啊！️️在这里，铅笔小猫的温馨小窝，仿佛是世间最甜美的港湾！️️吃完那香气四溢的铅笔，快意地进入梦乡，无忧无虑，尽享欢乐的时光！️️在这片音乐与味觉交织的天地里，铅笔小猫的存在真是太完美了！️️每一天都浸润在幸福与欢愉之中，毫无烦恼，尽情享受生活的每一刻！`,
+
+								`太好了支持✊`,
+
+								`诶我去`
+							];
+
+							let currentMessageIndex = -1;
+
+							function showRandomMessage() {
+								const container = document.getElementById("messageContainer");
+								const messageElement = document.getElementById("messageText");
+
+								// 淡出动画
+								container.style.opacity = "0";
+
+								setTimeout(() => {
+									// 获取新留言（确保不重复）
+									let newIndex;
+									do {
+										newIndex = Math.floor(Math.random() * messages.length);
+									} while (newIndex === currentMessageIndex && messages.length > 1);
+
+									currentMessageIndex = newIndex;
+
+									// 替换内容（保留换行符）
+									messageElement.innerHTML = messages[currentMessageIndex]
+										.replace(/\n/g, '<br>');
+
+									// 淡入动画
+									container.style.opacity = "1";
+
+									// 添加临时动画效果
+									messageElement.classList.add("message-highlight");
+									setTimeout(() => {
+										messageElement.classList.remove("message-highlight");
+									}, 1000);
+								}, 300);
+							}
+						</script>
+
+						<style>
+							/* 留言容器样式 */
+							#messageContainer {
+								transition: opacity 0.3s ease;
+								min-height: 60px;
+								/* 保证多行空间 */
+								display: flex;
+								align-items: center;
+							}
+
+							/* 留言文本样式 - 支持多行 */
+							#messageText {
+								white-space: pre-line;
+								/* 保留换行符 */
+								text-align: left;
+								line-height: 1.6;
+								margin: 0;
+								padding: 8px 0;
+							}
+
+							/* 高亮动画 */
+							.message-highlight {
+								animation: highlightFade 1s ease;
+							}
+
+							@keyframes highlightFade {
+								0% {
+									background-color: rgba(255, 230, 150, 0.5);
+								}
+
+								100% {
+									background-color: transparent;
+								}
+							}
+
+							/* 项目项悬停效果 */
+							.projectItem.b:hover #messageText {
+								text-decoration: underline;
+								cursor: pointer;
+							}
+
+							/* 响应式设计 */
+							@media (max-width: 480px) {
+								#messageText {
+									font-size: 14px;
+									line-height: 1.5;
+								}
+							}
+						</style>
 				</div>
 
 
@@ -373,10 +496,14 @@
 					图集
 				</div>
 				<div class="skill">
-					<img src="https://image.fanzhuo.xyz/file/AgACAgUAAyEGAASKws10AAMdaJyD7cJ3fWPrubJBjg3NCP1iPN4AAnTRMRvt3uFURmdbx7EwqcYBAAMCAAN3AAM2BA.png" alt="作者：白鸟">
-					<img src="https://image.fanzhuo.xyz/file/AgACAgUAAyEGAASKws10AAMfaJyFPKjq7SxcKB8J8uUjvjMqYFoAAnbRMRvt3uFUyeXLxZEG-DABAAMCAAN5AAM2BA.jpg" alt="作者：白鸟">
-					<img src="https://image.fanzhuo.xyz/file/AgACAgUAAyEGAASKws10AAMgaJyFdVONWCTOVFc3fXUzU8wppcgAAnfRMRvt3uFUjPAjDlHVc-UBAAMCAAN5AAM2BA.jpg" alt="作者：白鸟">
-					<img src="https://image.fanzhuo.xyz/file/AgACAgUAAyEGAASKws10AAMhaJyFmOEbqS6ZAAGvR64Ue2R5TWKBAAJ40TEb7d7hVIGxYzfLge-sAQADAgADdwADNgQ.jpg" alt="作者：白鸟">
+					<img src="https://image.fanzhuo.xyz/file/AgACAgUAAyEGAASKws10AAMdaJyD7cJ3fWPrubJBjg3NCP1iPN4AAnTRMRvt3uFURmdbx7EwqcYBAAMCAAN3AAM2BA.png"
+						alt="作者：白鸟">
+					<img src="https://image.fanzhuo.xyz/file/AgACAgUAAyEGAASKws10AAMfaJyFPKjq7SxcKB8J8uUjvjMqYFoAAnbRMRvt3uFUyeXLxZEG-DABAAMCAAN5AAM2BA.jpg"
+						alt="作者：白鸟">
+					<img src="https://image.fanzhuo.xyz/file/AgACAgUAAyEGAASKws10AAMgaJyFdVONWCTOVFc3fXUzU8wppcgAAnfRMRvt3uFUjPAjDlHVc-UBAAMCAAN5AAM2BA.jpg"
+						alt="作者：白鸟">
+					<img src="https://image.fanzhuo.xyz/file/AgACAgUAAyEGAASKws10AAMhaJyFmOEbqS6ZAAGvR64Ue2R5TWKBAAJ40TEb7d7hVIGxYzfLge-sAQADAgADdwADNgQ.jpg"
+						alt="作者：白鸟">
 					作者：白鸟(o゜▽゜)o☆
 				</div>
 			</content>
